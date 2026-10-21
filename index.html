@@ -122,131 +122,183 @@
                 </div>
             </div>
         </div>
+<!-- PIXEL ART GENERÁTOR TVÁRE A TELA -->
+<label>2. Pixel Art Editor Avatara & Tela:</label>
+<div class="face-builder-box" style="background: #252a34; border: 2px solid var(--accent-gold); padding: 15px; border-radius: 8px;">
+    
+    <div style="display: flex; gap: 20px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 15px;">
+        <!-- Canvas Náhľad Pixel Art Avatara (Tvár + Telo) -->
+        <div class="face-preview" style="width: 150px; height: 150px; background: #111318; border: 3px solid var(--accent-gold); border-radius: 8px; image-rendering: pixelated; display: flex; align-items: center; justify-content: center;">
+            <svg id="dynamic-face-svg" width="130" height="130" viewBox="0 0 100 100" style="image-rendering: pixelated;">
+                <!-- Plášť -->
+                <path id="svg-cape" d="" />
 
-        <!-- PIXEL ART GENERÁTOR TVÁRE -->
-        <label>2. Pixel Art Editor Avatara:</label>
-        <div class="face-builder-box" style="background: #252a34; border: 2px solid var(--accent-gold); padding: 15px; border-radius: 8px;">
-            
-            <div style="display: flex; gap: 20px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 15px;">
-                <!-- Canvas Náhľad Pixel Art Avatara -->
-                <div class="face-preview" style="width: 140px; height: 140px; background: #1a1c23; border: 3px solid var(--accent-gold); border-radius: 8px; image-rendering: pixelated; display: flex; align-items: center; justify-content: center;">
-                    <svg id="dynamic-face-svg" width="128" height="128" viewBox="0 0 100 100" style="image-rendering: pixelated;">
-                        <!-- Obrys Hlavy & Koža -->
-                        <path class="pixel-skin-outline" d="M 20 20 h 60 v 65 h -60 z" fill="#8d5b4c"/>
-                        <path class="pixel-skin" d="M 23 23 h 54 v 59 h -54 z" fill="#ffe0bd"/>
-                        <path class="pixel-skin-shadow" d="M 23 72 h 54 v 10 h -54 z M 67 23 h 10 v 50 h -10 z" fill="#d4a373"/>
+                <!-- Telo a Zbroj -->
+                <path class="pixel-skin" d="M 36 48 h 28 v 45 h -28 z" fill="#ffe0bd" />
+                <path id="svg-body-armor" fill="#88c0d0" />
 
-                        <!-- Uši -->
-                        <path class="pixel-skin" d="M 15 40 h 8 v 15 h -8 z M 77 40 h 8 v 15 h -8 z" fill="#ffe0bd"/>
+                <!-- Obrys Hlavy & Koža -->
+                <path class="pixel-skin-outline" d="M 22 8 h 56 v 40 h -56 z" fill="#8d5b4c"/>
+                <path class="pixel-skin" d="M 25 11 h 50 v 34 h -50 z" fill="#ffe0bd"/>
+                <path class="pixel-skin-shadow" d="M 25 40 h 50 v 5 h -50 z M 67 11 h 8 v 30 h -8 z" fill="#d4a373"/>
 
-                        <!-- Oči (Pixel Art) -->
-                        <g id="svg-eyes">
-                            <!-- Ľavé oko -->
-                            <path d="M 30 38 h 14 v 12 h -14 z" fill="#ffffff"/>
-                            <path id="svg-eye-l" d="M 34 40 h 8 v 10 h -8 z" fill="#3a86ff"/>
-                            <path d="M 38 42 h 4 v 4 h -4 z" fill="#000000"/>
-                            
-                            <!-- Pravé oko -->
-                            <path d="M 56 38 h 14 v 12 h -14 z" fill="#ffffff"/>
-                            <path id="svg-eye-r" d="M 60 40 h 8 v 10 h -8 z" fill="#3a86ff"/>
-                            <path d="M 64 42 h 4 v 4 h -4 z" fill="#000000"/>
-                        </g>
+                <!-- Uši -->
+                <path class="pixel-skin" d="M 18 20 h 7 v 10 h -7 z M 75 20 h 7 v 10 h -7 z" fill="#ffe0bd"/>
 
-                        <!-- Ústa -->
-                        <path id="svg-mouth" d="M 43 62 h 14 v 3 h -14 z" fill="#000000"/>
+                <!-- Oči -->
+                <g id="svg-eyes">
+                    <path d="M 30 22 h 12 v 8 h -12 z" fill="#ffffff"/>
+                    <path id="svg-eye-l" d="M 34 24 h 6 v 6 h -6 z" fill="#3a86ff"/>
+                    
+                    <path d="M 58 22 h 12 v 8 h -12 z" fill="#ffffff"/>
+                    <path id="svg-eye-r" d="M 62 24 h 6 v 6 h -6 z" fill="#3a86ff"/>
+                </g>
 
-                        <!-- Vlasy & Brada -->
-                        <path id="svg-hair" fill="#6c584c"/>
-                        <path id="svg-beard" fill="#6c584c"/>
+                <!-- Ústa, Vlasy, Brada -->
+                <path id="svg-mouth" d="M 43 37 h 14 v 2 h -14 z" fill="#000000"/>
+                <path id="svg-hair" fill="#6c584c"/>
+                <path id="svg-beard" fill="#6c584c"/>
+                <path id="svg-accessory"/>
 
-                        <!-- Doplnky -->
-                        <path id="svg-accessory"/>
-                    </svg>
-                </div>
+                <!-- Zbrane -->
+                <path id="svg-weapon-left" fill="#d8dee9"/>
+                <path id="svg-weapon-right" fill="#ebcb8b"/>
+            </svg>
+        </div>
 
-                <!-- Výber Paliet (SKIN & EYES) ako na obrázku -->
-                <div style="text-align: left;">
-                    <label style="font-size: 13px;">SKIN PALETTES:</label>
-                    <div style="display: flex; gap: 6px; margin-bottom: 10px;">
-                        <div onclick="selectSkinPalette(0)" style="width:24px; height:24px; background:#ffe0bd; border:2px solid #fff; cursor:pointer; border-radius:3px;"></div>
-                        <div onclick="selectSkinPalette(1)" style="width:24px; height:24px; background:#f3c193; border:2px solid #fff; cursor:pointer; border-radius:3px;"></div>
-                        <div onclick="selectSkinPalette(2)" style="width:24px; height:24px; background:#a67244; border:2px solid #fff; cursor:pointer; border-radius:3px;"></div>
-                        <div onclick="selectSkinPalette(3)" style="width:24px; height:24px; background:#5c3a21; border:2px solid #fff; cursor:pointer; border-radius:3px;"></div>
-                    </div>
-
-                    <label style="font-size: 13px;">EYES COLOR:</label>
-                    <div style="display: flex; gap: 6px;">
-                        <div onclick="document.getElementById('face-eye-color').value='#3a86ff'; updateFaceFromScript();" style="width:20px; height:20px; background:#3a86ff; cursor:pointer; border-radius:3px;"></div>
-                        <div onclick="document.getElementById('face-eye-color').value='#38b000'; updateFaceFromScript();" style="width:20px; height:20px; background:#38b000; cursor:pointer; border-radius:3px;"></div>
-                        <div onclick="document.getElementById('face-eye-color').value='#ebcb8b'; updateFaceFromScript();" style="width:20px; height:20px; background:#ebcb8b; cursor:pointer; border-radius:3px;"></div>
-                        <div onclick="document.getElementById('face-eye-color').value='#d90429'; updateFaceFromScript();" style="width:20px; height:20px; background:#d90429; cursor:pointer; border-radius:3px;"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ovládacie prvky pre štýly -->
-            <div class="face-controls-grid">
-                <div class="form-group">
-                    <label>Účes</label>
-                    <select id="face-hair-style" onchange="updateFaceFromScript()">
-                        <option value="braids">Zapletené vrkoče</option>
-                        <option value="mane">Dlhá divoká hriva</option>
-                        <option value="mohawk">Bojové číro</option>
-                        <option value="dreads">Severské dredy</option>
-                        <option value="spiky">Bodliak / Spiky</option>
-                        <option value="bald">Holohlavý</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Typ brady</label>
-                    <select id="face-beard-style" onchange="updateFaceFromScript()">
-                        <option value="full">Hustá plnovous</option>
-                        <option value="twin">Dva vrkoče na brade</option>
-                        <option value="stubble">Bojové strnisko</option>
-                        <option value="mustache">Zapletené fúzy</option>
-                        <option value="none">Bez brady</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Farba vlasov & brady</label>
-                    <select id="face-color" onchange="updateFaceFromScript()">
-                        <option value="#6c584c">Tmavo hnedá</option>
-                        <option value="#e0a96d">Zlatá blond</option>
-                        <option value="#bc6c25">Hrdzavá (Rudá)</option>
-                        <option value="#2b2d42">Havrania čierna</option>
-                        <option value="#ffffff">Strieborná (Mráz)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Výraz tváre</label>
-                    <select id="face-expression" onchange="updateFaceFromScript()">
-                        <option value="neutral">Neutrálny</option>
-                        <option value="smile">Úsmev</option>
-                        <option value="angry">Drsný / Bojový</option>
-                        <option value="surprised">Prekvapený</option>
-                        <option value="smirk">Arogantný úsmev</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Farba očí (Select)</label>
-                    <select id="face-eye-color" onchange="updateFaceFromScript()">
-                        <option value="#3a86ff">Ľadovo modrá</option>
-                        <option value="#38b000">Smaragdovo zelená</option>
-                        <option value="#ebcb8b">Božská zlatá</option>
-                        <option value="#d90429">Krvavo červená</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Doplnky / Jazvy</label>
-                    <select id="face-accessory" onchange="updateFaceFromScript()">
-                        <option value="none">Žiadne</option>
-                        <option value="eyepatch">Páska cez oko</option>
-                        <option value="glasses">Okuliare</option>
-                        <option value="scar">Jazva cez oko</option>
-                    </select>
-                </div>
+        <!-- Výber Paliet (SKIN) -->
+        <div style="text-align: left;">
+            <label style="font-size: 13px;">SKIN PALETTES:</label>
+            <div style="display: flex; gap: 6px; margin-bottom: 10px;">
+                <div onclick="selectSkinPalette(0)" style="width:24px; height:24px; background:#ffe0bd; border:2px solid #fff; cursor:pointer; border-radius:3px;"></div>
+                <div onclick="selectSkinPalette(1)" style="width:24px; height:24px; background:#f3c193; border:2px solid #fff; cursor:pointer; border-radius:3px;"></div>
+                <div onclick="selectSkinPalette(2)" style="width:24px; height:24px; background:#a67244; border:2px solid #fff; cursor:pointer; border-radius:3px;"></div>
+                <div onclick="selectSkinPalette(3)" style="width:24px; height:24px; background:#5c3a21; border:2px solid #fff; cursor:pointer; border-radius:3px;"></div>
             </div>
         </div>
+    </div>
+
+    <!-- Ovládacie prvky pre štýly tváre aj tela -->
+    <div class="face-controls-grid">
+        <div class="form-group">
+            <label>Účes</label>
+            <select id="face-hair-style" onchange="updateFaceGenerator()">
+                <option value="braids">Zapletené vrkoče</option>
+                <option value="mane">Dlhá divoká hriva</option>
+                <option value="mohawk">Bojové číro</option>
+                <option value="dreads">Severské dredy</option>
+                <option value="spiky">Bodliak / Spiky</option>
+                <option value="bald">Holohlavý</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Typ brady</label>
+            <select id="face-beard-style" onchange="updateFaceGenerator()">
+                <option value="full">Hustá plnovous</option>
+                <option value="twin">Dva vrkoče na brade</option>
+                <option value="stubble">Bojové strnisko</option>
+                <option value="mustache">Zapletené fúzy</option>
+                <option value="none">Bez brady</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Farba vlasov & brady</label>
+            <select id="face-color" onchange="updateFaceGenerator()">
+                <option value="#6c584c">Tmavo hnedá</option>
+                <option value="#e0a96d">Zlatá blond</option>
+                <option value="#bc6c25">Hrdzavá (Rudá)</option>
+                <option value="#2b2d42">Havrania čierna</option>
+                <option value="#ffffff">Strieborná (Mráz)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Výraz tváre</label>
+            <select id="face-expression" onchange="updateFaceGenerator()">
+                <option value="neutral">Neutrálny</option>
+                <option value="smile">Úsmev</option>
+                <option value="angry">Drsný / Bojový</option>
+                <option value="surprised">Prekvapený</option>
+                <option value="smirk">Arogantný úsmev</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Farba očí</label>
+            <select id="face-eye-color" onchange="updateFaceGenerator()">
+                <option value="#3a86ff">Ľadovo modrá</option>
+                <option value="#38b000">Smaragdovo zelená</option>
+                <option value="#ebcb8b">Božská zlatá</option>
+                <option value="#d90429">Krvavo červená</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Doplnky tváre</label>
+            <select id="face-accessory" onchange="updateFaceGenerator()">
+                <option value="none">Žiadne</option>
+                <option value="eyepatch">Páska cez oko</option>
+                <option value="glasses">Okuliare</option>
+                <option value="scar">Jazva cez oko</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Typ zbroje / Telo</label>
+            <select id="body-type" onchange="updateFaceGenerator()">
+                <option value="plate">Ťažká Plátová zbroj</option>
+                <option value="leather">Kožená zbroj lovca</option>
+                <option value="robe">Magická róba</option>
+                <option value="barbarian">Barbarská kožešina</option>
+                <option value="naked">Bez zbroje (Nahý hrudník)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Farba zbroje</label>
+            <select id="body-armor-color" onchange="updateFaceGenerator()">
+                <option value="#88c0d0">Oceľová Modrá</option>
+                <option value="#bf616a">Krvavo Červená</option>
+                <option value="#ebcb8b">Zlatá Božská</option>
+                <option value="#4c566a">Tmavo Šedá</option>
+                <option value="#a3be8c">Smaragdovo Zelená</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Zbraň v ľavej ruke</label>
+            <select id="body-weapon-left" onchange="updateFaceGenerator()">
+                <option value="axe">Bojová Sekera</option>
+                <option value="sword">Severský Meč</option>
+                <option value="hammer">Mjölner (Kladivo)</option>
+                <option value="magic">Magická Runová guľa</option>
+                <option value="none">Prázdna ruka</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Zbraň / Štít v pravej ruke</label>
+            <select id="body-weapon-right" onchange="updateFaceGenerator()">
+                <option value="shield">Kruhový Štít</option>
+                <option value="axe">Sekera</option>
+                <option value="sword">Meč</option>
+                <option value="none">Prázdna ruka</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Plášť / Doplňky</label>
+            <select id="body-cape" onchange="updateFaceGenerator()">
+                <option value="none">Žiadny</option>
+                <option value="cape">Červený Plášť</option>
+                <option value="fur">Vlčia Kožušina</option>
+            </select>
+        </div>
+    </div>
+</div>
+
 
     <!-- HLAVNÝ DASHBOARD (PROFIL) -->
     <div id="screen-profile" class="card hidden">
@@ -279,7 +331,7 @@
             <div><strong>Obratnosť (AGI):</strong> <span id="stat-agi">1</span></div>
             <div><strong>Inteligencia (INT):</strong> <span id="stat-int">1</span></div>
             <div><strong>Úlohy dnes:</strong> <span id="stat-quests">0</span>/30</div>
-        </div>
+        </>
         <p><strong>Patrón / Cesta:</strong> <span id="stat-patron">Neurčený (Odomknutie na LvL 5)</span></p>
         <p><strong>Výbava:</strong> <span id="stat-eq">Tréningový meč (2-5 DMG), Roztrhané šaty (+5 Armor)</span></p>
 
@@ -289,7 +341,7 @@
             <button onclick="showScreen('screen-smith')">🔨 Kováč / Trh</button>
             <button onclick="showScreen('screen-fame')">🏛️ Sieň Slávy</button>
         </div>
-    </div>
+    </>
 
     <!-- HOSPODA -->
     <div id="screen-tavern" class="card hidden">
